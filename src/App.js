@@ -1,7 +1,11 @@
-import TwitterCard from "./TwitterCard"
+import NavBar from "./NavBar";
+// import TwitterCard from "./TwitterCard"
 
 export default function App() {
   return (
-    <TwitterCard />
+    <>
+      <NavBar />
+    </>
+    // <TwitterCard />
   );
 }
