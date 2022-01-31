@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@500&family=Permanent+Marker&family=Supermercado+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 /*
 Available fonts:
@@ -16,6 +18,9 @@ html {
   background-color: #f9d003;
   width: 100%;
   height: 100%;
+  font-family: "Source Code Pro", monospace;
+  letter-spacing: 0.3vh;
+  padding-top: 15vh;
 }
 
 ::-moz-selection {
@@ -33,42 +38,89 @@ html {
   margin: 0;
   padding: 0;
 }
+
+/* Top navbar */
+
 .navbar {
   background-color: #f9d003;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
   padding: 0 0 2vh 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
 }
 
-.navbar > .navbar-brand {
+.navbar--expanded {
+  background-color: #f9d003;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  padding: 0 0 2vh 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  animation: expand--navbar 2s ease-in-out 0s forwards;
+}
+.navbar--unexpand {
+  background-color: #f9d003;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  padding: 0 0 2vh 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  animation: unexpand--navbar 0.7s ease-in-out 0s forwards;
+}
+
+@keyframes expand--navbar {
+  from {
+    padding-bottom: 2vh;
+  }
+  to {
+    padding-bottom: 100%;
+  }
+}
+
+@keyframes unexpand--navbar {
+  from {
+    padding-bottom: 100%;
+  }
+  to {
+    padding-bottom: 2vh;
+  }
+}
+
+.navbar-brand {
   font-family: "Permanent Marker", cursive;
   letter-spacing: 0.4vh;
   display: flex;
   align-items: center;
-  padding: 2vh 0 2vh 2vh;
+  padding: 2vh 0 0 2vh;
 }
 
-.navbar > .navbar-brand .navbar--crooks-icon-png {
+.navbar--crooks-icon-png {
   width: 8vh;
   height: 8vh;
 }
 
-.navbar > .navbar-brand > .navbar--title {
+.navbar--title {
   font-size: 4vh;
   font-weight: bold;
   margin-left: 3vh;
 }
 
-.navbar > .navbar--buttons > u {
+.navbar--buttons > u {
   display: flex;
   align-items: center;
   list-style-type: none;
   justify-content: space-around;
   font-weight: bold;
   font-size: 2vh;
-
-  padding-top: 1vh;
 }
-.navbar > .navbar--buttons > u > li > button {
+.navbar--buttons > u > li > button {
   background-color: #f9d003;
   border: 0.2vh solid black;
   color: black;
@@ -82,7 +134,79 @@ html {
   font-family: "Fredoka One", cursive;
   letter-spacing: 0.2vh;
 }
-.navbar > .navbar--buttons > u > li > button:hover {
+.navbar--buttons > u > li > button:hover {
   background-color: black;
-  color: white;
+  color: #f9d003;
+}
+
+.navbar--listIcon {
+  padding-left: 4vh;
+}
+
+/* About section */
+
+.about--div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2vh 0;
+}
+
+.about--images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  padding-right: 10vw;
+
+  width: 50vh;
+}
+
+.about--images > img {
+  width: 46vh;
+  padding: 1vh;
+}
+
+.about--box {
+  width: 30vw;
+  height: 60vh;
+  background-color: #f9d003;
+  border-radius: 2em;
+  font-weight: 700;
+
+  padding-left: 10vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about--box > p {
+  padding: 2vh 2vh 2vh 2vh;
+  font-size: 2vh;
+}
+
+@media (max-width: 900px) {
+  .about--div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about--box {
+    width: 80vw;
+    height: 50vh;
+    padding-left: 0;
+  }
+
+  .about--box > p {
+    border-radius: 2em;
+    padding: 2vh 2vh 6vh 2vh;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .about--images {
+    padding: 0 0 5vh 0;
+    width: 70vw;
+  }
 }
