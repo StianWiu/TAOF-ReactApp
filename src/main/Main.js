@@ -1,6 +1,6 @@
 import React from 'react';
-import About from "./mainComponents/About"
-import TwitterCard from "./mainComponents/TwitterCard"
+import About from "./About"
+import TwitterCard from "./TwitterCard"
 
 export default function Main() {
     return (

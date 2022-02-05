@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import crooksLogoPng from "./assets/Crooks-png.png"
+import crooksLogoPng from "../assets/Crooks-png.png"
 import * as icons from 'react-icons/fa';
 
 let expanded = false;

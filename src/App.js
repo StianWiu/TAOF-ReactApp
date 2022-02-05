@@ -1,12 +1,10 @@
-import NavBar from "./NavBar";
-import Main from "./Main";
-import InstagramCard from "./InstagramCard";
+import NavBar from "./navbar/NavBar";
+import Main from "./main/Main";
 export default function App() {
   return (
     <>
       <NavBar />
       <Main />
-      <InstagramCard />
     </>
 
   );
