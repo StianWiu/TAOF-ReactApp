@@ -13,7 +13,6 @@ font-family: 'Supermercado One', cursive;
 font-family: 'Fredoka One', cursive;
 font-family: 'Righteous', cursive;
 */
-
 html {
   background-color: #f9d003;
   width: 100%;
@@ -61,7 +60,7 @@ html {
   left: 0;
   z-index: 9999;
   width: 100%;
-  animation: expand--navbar 2s ease-in-out 0s forwards;
+  animation: expand--navbar 1s ease-in-out 0s forwards;
 }
 .navbar--unexpand {
   background-color: #f9d003;
@@ -72,7 +71,25 @@ html {
   left: 0;
   z-index: 9999;
   width: 100%;
-  animation: unexpand--navbar 0.7s ease-in-out 0s forwards;
+  animation: unexpand--navbar 1s ease-in-out 0s forwards;
+}
+
+.navbar--listIcon {
+  display: none;
+  background-color: #f9d003;
+  border: 0.2vh solid black;
+  color: black;
+  padding: 2vh 2vh;
+  text-align: center;
+  font-size: 2vh;
+  cursor: pointer;
+  border-radius: 1em;
+  text-transform: uppercase;
+}
+
+.navbar--listIcon:hover {
+  background-color: black;
+  color: #f9d003;
 }
 
 @keyframes expand--navbar {
@@ -80,13 +97,13 @@ html {
     padding-bottom: 2vh;
   }
   to {
-    padding-bottom: 100%;
+    padding-bottom: 100vh;
   }
 }
 
 @keyframes unexpand--navbar {
   from {
-    padding-bottom: 100%;
+    padding-bottom: 100vh;
   }
   to {
     padding-bottom: 2vh;
@@ -96,9 +113,9 @@ html {
 .navbar-brand {
   font-family: "Permanent Marker", cursive;
   letter-spacing: 0.4vh;
-  display: flex;
   align-items: center;
   padding: 2vh 0 0 2vh;
+  display: flex;
 }
 
 .navbar--crooks-icon-png {
@@ -120,7 +137,7 @@ html {
   font-weight: bold;
   font-size: 2vh;
 }
-.navbar--buttons > u > li > button {
+.navbar--buttons > u > a > li > button {
   background-color: #f9d003;
   border: 0.2vh solid black;
   color: black;
@@ -130,26 +147,114 @@ html {
   cursor: pointer;
   border-radius: 1em;
   text-transform: uppercase;
+  margin-left: 2vh;
 
   font-family: "Fredoka One", cursive;
   letter-spacing: 0.2vh;
 }
-.navbar--buttons > u > li > button:hover {
+
+.navbar--buttons > u > a > li > button:hover {
   background-color: black;
   color: #f9d003;
 }
 
-.navbar--listIcon {
-  padding-left: 4vh;
+.navbar--buttons {
+  display: block;
+  right: 10%;
+  position: absolute;
+}
+
+.menu--buttons {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  list-style-type: none;
+
+  display: none;
+}
+
+.menu--buttons > u > li {
+  padding-bottom: 2vh;
+}
+
+.menu--buttons > u > li > a > button {
+  background-color: #f9d003;
+  border: 0.2vh solid black;
+  color: black;
+  padding: 1vh 2vh;
+  text-align: center;
+  font-size: 2vh;
+  cursor: pointer;
+  border-radius: 1em;
+  text-transform: uppercase;
+  opacity: 0;
+
+  font-family: "Fredoka One", cursive;
+  letter-spacing: 0.2vh;
+}
+
+.menu--buttons > u > li > a > button:hover {
+  background-color: black;
+  color: #f9d003;
+}
+
+@keyframes hide--buttons {
+  0% {
+    opacity: 1;
+    transform: translate(0, -10em);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -200em);
+  }
+}
+@keyframes show--buttons {
+  1% {
+    transform: translate(0, -200em);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -10em);
+  }
+}
+
+.hide--buttons {
+  animation: hide--buttons 1.8s ease-in-out 0s forwards;
+}
+.show--buttons {
+  animation: show--buttons 1.3s ease-in-out 0s forwards;
 }
 
 /* About section */
 
+.main--about--div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+
+  margin-bottom: 15vh;
+}
+
 .about--div {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
   padding: 2vh 0;
+}
+
+.about--title {
+  padding-left: 2vh;
+  padding-bottom: 5vh;
 }
 
 .about--images {
@@ -208,5 +313,39 @@ html {
   .about--images {
     padding: 0 0 5vh 0;
     width: 70vw;
+  }
+
+  .navbar--listIcon {
+    display: block;
+    right: 10%;
+    position: absolute;
+  }
+
+  .navbar--buttons {
+    display: none;
+  }
+  .navbar-brand {
+    font-size: 6vh;
+  }
+  .navbar--title {
+    font-size: 5vw;
+    font-weight: bold;
+    margin-left: 3vh;
+  }
+
+  .menu--buttons {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  html {
+    scroll-behavior: smooth;
+  }
+  .navbar--unexpand {
+    padding-bottom: 20vh;
+  }
+  .navbar--expanded {
+    padding-bottom: 20vh;
   }
 }

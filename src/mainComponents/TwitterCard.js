@@ -9,10 +9,8 @@ const fetchTweet = () => {
         url: 'https://us-central1-taof-reactapp.cloudfunctions.net/twitterCard',
     })
         .then((response) => {
-            console.log(`Requested latest tweet \nSERVER-RESPONSE:${response.data.url}`);
             return response.data.url.substring(response.data.url.lastIndexOf("/") + 1);;
         })
-
 }
 
 function TwitterCard() {
@@ -22,7 +20,7 @@ function TwitterCard() {
                 if (isLoading) return <div>Tweet is loading...</div>;
                 if (error) return <div>Error: {error.message}</div>;
                 return (
-                    <div>
+                    <div id='TwitterCard'>
                         <Tweet tweetId={data} />
                     </div>
                 )
